@@ -56,6 +56,6 @@ end
 function strip_confn(df, list, keep; key=:from)
     return filter(row -> row.itraj ∉ list || row[key]==keep, df)
 end
-function strip_confn(df, list, keep; key=:from)
+function strip_confn!(df, list, keep; key=:from)
     return filter!(row -> row.itraj ∉ list || row[key]==keep, df)
 end
