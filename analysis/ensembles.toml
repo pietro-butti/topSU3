@@ -6,69 +6,69 @@ c = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
 [ensembles]
 
 [ensembles.SuperCoarse]
-beta = 5.916
-size = 16
-[ensembles.SuperCoarse.wilson]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/SuperCoarse.wilson.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.SuperCoarse.lw]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/SuperCoarse.lw.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.SuperCoarse.dbw2]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/SuperCoarse.dbw2.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    beta = 5.916
+    size = 16
+    [ensembles.SuperCoarse.wilson]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/SuperCoarse.wilson.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.SuperCoarse.lw]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/SuperCoarse.lw.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.SuperCoarse.dbw2]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/SuperCoarse.dbw2.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
 
 [ensembles.Coarse-1]
-beta = 6.036
-size = 20
-[ensembles.Coarse-1.wilson]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-1.wilson.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.Coarse-1.lw]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-1.lw.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.Coarse-1.dbw2]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-1.dbw2.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    beta = 6.036
+    size = 20
+    [ensembles.Coarse-1.wilson]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-1.wilson.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.Coarse-1.lw]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-1.lw.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.Coarse-1.dbw2]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-1.dbw2.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
 
 [ensembles.Coarse-2]
-beta = 6.154
-size = 24
-[ensembles.Coarse-2.wilson]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-2.wilson.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.Coarse-2.lw]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-2.lw.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.Coarse-2.dbw2]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-2.dbw2.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    beta = 6.154
+    size = 24
+    [ensembles.Coarse-2.wilson]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-2.wilson.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.Coarse-2.lw]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-2.lw.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.Coarse-2.dbw2]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Coarse-2.dbw2.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
 
 
 [ensembles.Fine-1]
-beta = 6.311
-size = 30
-[ensembles.Fine-1.wilson]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-1.wilson.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.Fine-1.lw]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-1.lw.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.Fine-1.dbw2]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-1.dbw2.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    beta = 6.311
+    size = 30
+    [ensembles.Fine-1.wilson]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-1.wilson.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.Fine-1.lw]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-1.lw.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.Fine-1.dbw2]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-1.dbw2.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
 
 
 [ensembles.Fine-2]
-beta = 6.442
-size = 36
-[ensembles.Fine-2.wilson]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-2.wilson.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.Fine-2.lw]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-2.lw.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-[ensembles.Fine-2.dbw2]
-file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-2.dbw2.jld2"
-scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    beta = 6.442
+    size = 36
+    [ensembles.Fine-2.wilson]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-2.wilson.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.Fine-2.lw]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-2.lw.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
+    [ensembles.Fine-2.dbw2]
+        file = "/Users/pietro/code/data_analysis/data/YM3/formatted/Fine-2.dbw2.jld2"
+        scheme = [0.2,0.25,0.3,0.35,0.4,0.45,0.5]
 
