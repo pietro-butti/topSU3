@@ -1,0 +1,5 @@
+.vscode
+PLOTS/
+RESULTS/
+download.sh
+Manifest.toml
