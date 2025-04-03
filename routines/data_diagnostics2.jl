@@ -1,10 +1,12 @@
-using topSU3, DataFrames, ADerrors, Plots, JLD2, ProgressMeter, Statistics
+using topSU3, DataFrames, ADerrors, Plots, JLD2, ProgressMeter, Statistics, TOML
 
-ENSEMBLE = "Fine-1"
-LSIZE    = 30
+mdata = TOML.parsefile("/Users/pietro/code/data_analysis/topSU3/analysis/ensembles.toml")
+
+ENSEMBLE = "Fine-2"
+LSIZE    = mdata["ensembles"][ENSEMBLE]["size"]
 FLOWTYPE = "wilson"
 PATH     = "/Users/pietro/code/data_analysis/data/YM3/formatted"
-TCUT     = (LSIZE/2)^2/8
+TCUT     = (LSIZE/3)^2/8
 SAVETO   = nothing
 
 
@@ -91,5 +93,5 @@ df = DataFrame(
 
 ##
 
-using Serialization
-df = deserialize("routines/wilson.jls")
+# using Serialization
+# df = deserialize("routines/wilson.jls")

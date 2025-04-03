@@ -1,9 +1,9 @@
 using topSU3, DataFrames, ADerrors, Plots, JLD2, ProgressMeter, Statistics
 
 ENSEMBLE = "Fine-1"
-FLOWTYPE = "wilson"
+FLOWTYPE = "dbw2"
 PATH     = "/Users/pietro/code/data_analysis/data/YM3/formatted"
-TCUT     = (30/3)^2/8
+TCUT     = (20/3)^2/8
 SAVETO   = nothing
 # SAVETO   = "PLOTS/"
 
@@ -24,19 +24,19 @@ Tcut = TCUT
 
 
 ##
-confn = flw_data[flw_data.flowt .== 0., :itraj]
+# confn = flw_data[flw_data.flowt .== 0., :itraj]
 
-global i = confn[end]
-conf = []
-while true
-    if i∈confn
-        push!(conf,i)
-    end
-    global i -= 140
-    if i<0 break end
-end
+# global i = confn[end]
+# conf = []
+# while true
+#     if i∈confn
+#         push!(conf,i)
+#     end
+#     global i -= 140
+#     if i<0 break end
+# end
 
-flw_data = filter(x->x.itraj∈conf, flw_data)
+# flw_data = filter(x->x.itraj∈conf, flw_data)
 
 
 ##

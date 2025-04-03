@@ -74,19 +74,8 @@ function main()
     return df
 end
 
-##
-
-df = run_analysis(
-    ["SuperCoarse","Coarse-1","Coarse-2","Fine-1","Fine-2"],
-    ["wilson"],
-    [0.2,0.25,0.3,0.35,0.4,0.45,0.5],
-    TOML.parsefile("/Users/pietro/code/data_analysis/topSU3/analysis/ensembles.toml")
-)
-##
-
-dump_data_dic(df, "RESULTS/wilson")
+main()
 
 ##
-using topSU3, DataFrames, ADerrors, Plots, JLD2, ArgParse, TOML, Serialization, BDIO, ALPHAio
-params = TOML.parsefile("/Users/pietro/code/data_analysis/topSU3/analysis/ensembles.toml")
-df = reconstruct("RESULTS/wilson",params)
+    # params = TOML.parsefile("/Users/pietro/code/data_analysis/topSU3/analysis/ensembles.toml")
+    # df = reconstruct("RESULTS/wilson",params)
