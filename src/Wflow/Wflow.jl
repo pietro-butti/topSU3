@@ -71,15 +71,19 @@ module Wflow
     end
 
     function confid(flw_data)
-        confid = Int64.(unique(flw_data.itraj) .// gcd(unique(flw_data.itraj)))
-        return confid
+        trajs = unique(flw_data.itraj)
+        trajs .-= trajs[1] # Subtract the first element
+        trajs .+= trajs[2] # Add the second element to start form not zero
+        # trajs = Int64.(trajs) .// gcd(trajs)
+        return Int64.(trajs)
     end
     
-    function uwscale(flw_data::DataFrame, sref::Float64, mcid; obs=:t2Esym)
+
+    function uwscale(flw_data::DataFrame, sref::Float64, mcid; obs=:t2Esym, nmeas=-1)
         (t1,t2) = tbounds(flw_data,sref; obs=obs)      
         
         cfid = confid(flw_data)
-        Nmeas  = cfid[end]
+        Nmeas  = nmeas<0 ? cfid[end] : nmeas
 
         E1 = flw_data[flw_data.flowt .== t1,obs]
         E2 = flw_data[flw_data.flowt .== t2,obs]

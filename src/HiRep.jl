@@ -79,11 +79,11 @@ module HiRep
 
     function get_flow_data(filename)
         df = DataFrame(
-        itraj  = Int[], 
-        flowt  = Float64[], 
-        t2Eplq = Float64[],
-        t2Esym = Float64[],
-        qtop   = Float64[]
+            itraj  = Int[], 
+            flowt  = Float64[], 
+            t2Eplq = Float64[],
+            t2Esym = Float64[],
+            qtop   = Float64[]
         )
 
         itraj_rgx = r"\[IO\]\[0\]Configuration \[.*n(?P<itraj>[0-9]+)"

@@ -1,6 +1,6 @@
 module topSU3
     using DataFrames, Plots, ProgressMeter, Optim, Statistics, StatsBase, JLD2, Serialization
-    using ADerrors, BDIO, FormalSeries, ALPHAio
+    using ADerrors, BDIO, FormalSeries, ALPHAio, LsqFit
 
     include("HiRep.jl")
     using .HiRep
@@ -16,11 +16,11 @@ module topSU3
     include("AnalysisTools/AnalysisTools.jl")
     using .AnalysisTools
         export read_flow_from_list 
-        export inspect_flow_data, inspect_doublers, strip_confn, strip_confn!
-        # export bdio_dump, bdio_read
+        export inspect_flow_data, inspect_doublers, strip_confn, strip_confn!, unify_mch, unify_mch!
         export dump_data_dic, read_data_dic, reconstruct
         export set_scale, topology, run_analysis
-    
+        export line, parabola, χ², uwfit
+        export fmt
 
     include("QPlots.jl")
     using .QPlots

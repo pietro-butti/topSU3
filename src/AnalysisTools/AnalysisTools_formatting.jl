@@ -59,3 +59,35 @@ end
 function strip_confn!(df, list, keep; key=:from)
     return filter!(row -> row.itraj ∉ list || row[key]==keep, df)
 end
+
+
+function unify_mch(df,list)
+    # Remove extra confs
+    dff = filter(row -> row.itraj ∈ list, df)
+    
+    # Find missing confs
+    trajs = unique(dff.itraj)
+    miss = filter(x->x∉trajs, list)
+
+    if isempty(miss)
+        return dff
+    else
+        @warn("There are missing confs")
+        return dff, miss
+    end
+end
+function unify_mch!(df,list)
+    # Remove extra confs
+    filter!(row -> row.itraj ∈ list, df)
+    
+    # Find missing confs
+    trajs = unique(df.itraj)
+    miss = filter(x->x∉trajs, list)
+
+    if isempty(miss)
+        return
+    else
+        @warn("There are missing confs")
+        return miss 
+    end
+end

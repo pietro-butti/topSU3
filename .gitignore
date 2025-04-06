@@ -1,5 +1,6 @@
 .vscode
 PLOTS/
 RESULTS/
+FROM_LUMI/
 download.sh
 Manifest.toml

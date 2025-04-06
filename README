@@ -1,3 +1,24 @@
 # topSU3
 
 This repository is a `julia` package to analyze data coming from `HiRep` pure gauge simulations 
+
+
+
+## Analysis workflow
+
+### Data input and formatting
+- `analysis/data_input/*`: data are being read from HiRep raw files. A first filters of doublers and incomplete runs is done. Data are then being stored in a formatted `jld2` file 
+- `analysis/diagnostics/*`: Inside the same ensemble, different flow types are compared and we found which are the missing configuration for which kernel
+
+### Scale setting and primary observables
+- `analysis/primary/*`: in `data_analysis.jl` we compute primary observables: t0,t1,t2,\chi,\chi_round. We dump the data into a `.bdio` file like
+```
+dump_data_dic(scales, "RESULTS/apr4_scales"  ; keys=["ensemble","flow_type","L","obs","ref"], values=["t0"])
+dump_data_dic(top   , "RESULTS/apr4_topology"; keys=["ensemble","flow_type","L","scheme"], values=["χ","χround"])
+```
+> To read the data, you have to feed the `reconstruct` routine with the SAME keywords args `keys` and `values` given to `dump_data_dic`
+> ```
+> scale = reconstruct("RESULTS/apr4_scales.bdio"  , keys=["ensemble","flow_type","L","obs","ref"], values=["t0"])
+> topol = reconstruct("RESULTS/apr4_topology.bdio", keys=["ensemble","flow_type","L","scheme"], values=["χ","χround"])
+> ```
+

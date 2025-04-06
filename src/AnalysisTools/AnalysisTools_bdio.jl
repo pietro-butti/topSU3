@@ -173,7 +173,7 @@ function reconstruct(name; keys=["ensemble","flow_type","scheme"],values=["t0"])
     df = DataFrame([[] for _ in cols],cols)
     for (kstr,obs) in sort(read_data_dic(name))
         ks = String.(split(kstr,"_"))
-        push!(df,(ks...,only(obs)))
+        push!(df,(ks...,obs...))
     end
     return df
 end
