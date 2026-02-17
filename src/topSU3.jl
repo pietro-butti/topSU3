@@ -1,6 +1,6 @@
 module topSU3
     using DataFrames, Plots, ProgressMeter, Optim, Statistics, StatsBase, JLD2, Serialization
-    using ADerrors, BDIO, FormalSeries, ALPHAio, LsqFit
+    using ADerrors, BDIO, ALPHAio, LsqFit
 
     include("IO/IO.jl")
     using .IO
