@@ -15,11 +15,10 @@ The basic input for this module is a `DataFrame` object that will be passed as a
  2004002 │ 20020    20.01  2.52473     2.46468      -1.92402
 ```
 
-It can be obtained as the output of the function `HiRep.get_flow_data`.
+It can be obtained as the output of the function `IO_*.get_flow_data`.
 """
 module Wflow
     using DataFrames, ProgressMeter,ADerrors, Optim, Statistics, StatsBase
-    using FormalSeries
     
     include("Wflow_formatting.jl")
         export slice_at 
@@ -27,7 +26,7 @@ module Wflow
 
     include("Wflow_topology.jl")
         export find_optimal_alpha, Qtop
-        export chi_from_theta!
+        # export chi_from_theta!
 
 
     function uwflow(df::DataFrame, mcid::String; obs=:t2Esym)

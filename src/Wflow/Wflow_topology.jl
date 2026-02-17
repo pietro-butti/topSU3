@@ -13,8 +13,8 @@ end
 
 
 
-function chi_from_theta!(df::DataFrame)
-    θ = Series{Float64,3}((0.,1.,1.))
-    df.chi_from_theta = map(x->x.c[2],exp.(-θ .* df.qtop))
-    return nothing
-end
+# function chi_from_theta!(df::DataFrame)
+#     θ = Series{Float64,3}((0.,1.,1.))
+#     df.chi_from_theta = map(x->x.c[2],exp.(-θ .* df.qtop))
+#     return nothing
+# end

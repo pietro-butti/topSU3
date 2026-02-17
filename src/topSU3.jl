@@ -3,7 +3,9 @@ module topSU3
     using ADerrors, BDIO, FormalSeries, ALPHAio, LsqFit
 
     include("IO/IO.jl")
-        export get_runtime, get_confn, get_plaquette, get_flow_data 
+    using .IO
+        # export get_runtime, get_confn, get_plaquette
+        export get_mc_history, get_flow_data
 
 
     include("Wflow/Wflow.jl")
