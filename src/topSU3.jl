@@ -9,7 +9,7 @@ module topSU3
 
     include("Wflow/Wflow.jl")
     using .Wflow
-        export slice_at, find_mismatch, find_doublers, strip_confs!, process_flow_data
+        export slice_at, find_mismatch, find_incomplete_flow, find_doublers, strip_confs!, process_flow_data
         export find_optimal_alpha, Qtop
         export uwflow, tcut, tbounds, uwscale, confid
 
@@ -21,9 +21,5 @@ module topSU3
         export set_scale, topology, run_analysis
         export line, parabola, χ², uwfit
         export fmt
-
-    include("QPlots.jl")
-    using .QPlots
-        export accumulation_plot
 
 end

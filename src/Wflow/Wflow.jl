@@ -23,7 +23,7 @@ module Wflow
     
     include("Wflow_formatting.jl")
         export slice_at 
-        export find_mismatch, find_doublers, strip_confs!
+        export find_mismatch, find_incomplete_flow, find_doublers, strip_confs!
 
     include("Wflow_topology.jl")
         export find_optimal_alpha, Qtop
@@ -70,19 +70,23 @@ module Wflow
         return t1, t2
     end
 
-    function confid(flw_data)
+    function confid(flw_data; offset=true)
         trajs = unique(flw_data.itraj)
-        trajs .-= trajs[1] # Subtract the first element
-        trajs .+= trajs[2] # Add the second element to start form not zero
+
+        if offset
+            trajs .-= trajs[1] # Subtract the first element
+            trajs .+= trajs[2] # Add the second element to start form not zero
+        end
+
         # trajs = Int64.(trajs) .// gcd(trajs)
         return Int64.(trajs)
     end
     
 
-    function uwscale(flw_data::DataFrame, sref::Float64, mcid; obs=:t2Esym, nmeas=-1)
+    function uwscale(flw_data::DataFrame, sref::Float64, mcid; obs=:t2Esym, nmeas=-1, offset=true)
         (t1,t2) = tbounds(flw_data,sref; obs=obs)      
         
-        cfid = confid(flw_data)
+        cfid = confid(flw_data,offset=offset)
         Nmeas  = nmeas<0 ? cfid[end] : nmeas
 
         E1 = flw_data[flw_data.flowt .== t1,obs]

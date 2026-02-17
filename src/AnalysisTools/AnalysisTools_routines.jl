@@ -1,8 +1,8 @@
 
 
-function set_scale(flw_data::DataFrame, ENSEMBLE, LSIZE; tcut=0.3, afm_factor=0.144, obs=:t2Esym)
+function set_scale(flw_data::DataFrame, ENSEMBLE, LSIZE; tcut=0.3, afm_factor=0.144, obs=:t2Esym, nmeas=-1)
     # Scale setting
-    t0 = uwscale(flw_data,tcut,ENSEMBLE,obs=obs)
+    t0 = uwscale(flw_data,tcut,ENSEMBLE,obs=obs,nmeas=nmeas)
     scale = sqrt(8*t0)
     uwerr(scale)
 

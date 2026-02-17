@@ -14,7 +14,7 @@ parabola(x::Vector,p::Vector{uwreal}) = [parabola(el,p) for el in x]
     sum((ydata .- ŷ).^2 ./ yerr.^2)
 end
 
-function uwfit(xdata,ydata::Vector{uwreal}; ord=1, plottable=true)
+function uwfit(xdata,ydata::Vector{uwreal}; ord=1)
     model = ord==1 ? line : parabola
 
     fit = curve_fit(

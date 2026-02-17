@@ -11,14 +11,15 @@ function read_flow_from_list(file_list)
     return vcat(raw_data...)
 end
 
-function inspect_flow_data(file_list)
+function inspect_flow_data(file_list; trange=0.:0.01:20.)
     Logger = Dict()
     
     # Read all data in file list 
     flow = read_flow_from_list(file_list)
 
     # Find incomplete runs and strip
-    Logger["Incomplete flow"] = find_mismatch(flow).itraj
+    # Logger["Incomplete flow"] = find_mismatch(flow).itraj
+    Logger["Incomplete flow"] = find_incomplete_flow(flow, trange).itraj
 
     # Sort for conf number
     flow = sort(flow)
