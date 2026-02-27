@@ -1,0 +1,31 @@
+[Run]
+user    = "alessandro"
+host    = "propagate"
+name    = "test_run_scale_setting"
+ensName = "B2L12"
+device  = 0 # GPU device number 
+
+
+[Lattice]
+size   = [12,12,12,12]
+blocks = [4,4,4,4]
+beta   = 5.0
+c0     = 1.6666666666666667
+bcs    = 0 # 0=BC_PERIODIC
+twist  = [0,0,0,0,0,0]
+
+[HMC]
+ntherm = 10000 # number of thermalization steps
+ntraj  = 10000 # number of trajectories  
+nleaps = 40
+delta  = 0.05
+
+[Flow]
+nflow      = 5000 # number of flow trajectories
+flowEach   = 100  # perform flow every 'flowEach' trajectories 
+tol        = 1.0E-7
+eps        = 0.05
+
+[Logs]
+saveto   = "./dat"
+saveEach = 200
