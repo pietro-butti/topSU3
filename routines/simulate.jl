@@ -336,7 +336,7 @@ function main()
     intsch = omf4(Float64, δ, NLEAPS)
 
     _wflw_ctor = ZEUTHEN ? wfl_rk3 : zfl_rk3
-    wflw = _wflw_ctor(Float64, ϵ, tol)
+    wflw = _wflw_ctor(Float64, ϵ, 1.0E-7)
 
     if ADAPTIVE && TFLOW < 0
         error("Adaptive flow requires --Tflow to be set to a positive value.")
