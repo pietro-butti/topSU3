@@ -46,11 +46,11 @@ function parse_commandline()
         "--delta"
             help = "HMC integrator step size δ"
             arg_type = Float64
-            default = 0.01
+            default = 0.1
         "--nleaps"
             help = "Number of leapfrog steps per trajectory"
             arg_type = Int
-            default = 50
+            default = 10
 
         # --- Gradient flow ---
         "--flow-each"
@@ -113,41 +113,41 @@ end
 """
     load_params_from_toml(path)
 
-Read simulation parameters from a TOML file and return them as a Dict
-with the same keys used by the CLI parser.
+    Read simulation parameters from a TOML file and return them as a Dict
+    with the same keys used by the CLI parser.
 
-Example TOML (`input.toml`):
-─────────────────────────────────────────────────────────────────────────────
-[geometry]
-L  = 16
-Lx = 8
+    Example TOML (`input.toml`):
+    ─────────────────────────────────────────────────────────────────────────────
+    [geometry]
+    L  = 16
+    Lx = 8
 
-[action]
-beta = 6.2
-c0   = 1.0
+    [action]
+    beta = 6.2
+    c0   = 1.0
 
-[hmc]
-ntherm = 200
-ntraj  = 1000
-delta  = 0.02
-nleaps = 20
+    [hmc]
+    ntherm = 200
+    ntraj  = 1000
+    delta  = 0.02
+    nleaps = 20
 
-[flow]
-flow_each = 5
-zeuthen   = false
-adaptive  = false
-Tflow     = -1.0
-c0flow    = 1.0
-epsilon   = 0.01
-nflow     = 100
+    [flow]
+    flow_each = 5
+    zeuthen   = false
+    adaptive  = false
+    Tflow     = -1.0
+    c0flow    = 1.0
+    epsilon   = 0.01
+    nflow     = 100
 
-[io]
-saveto     = "./output"
-ens_name   = "b6.2_L16"
-save_each  = 10
-start_cnfg = ""        # leave empty to start from unit configuration
-GPU        = 0
-─────────────────────────────────────────────────────────────────────────────
+    [io]
+    saveto     = "./output"
+    ens_name   = "b6.2_L16"
+    save_each  = 10
+    start_cnfg = ""        # leave empty to start from unit configuration
+    GPU        = 0
+    ─────────────────────────────────────────────────────────────────────────────
 """
 function load_params_from_toml(path::String)
     raw = TOML.parsefile(path)
