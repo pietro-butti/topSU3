@@ -1,13 +1,8 @@
 module IO
-    using DataFrames
+    using DataFrames, ADerrors, BDIO
 
-    # include("IO_HiRep.jl")
-    # using .HiRep
-    #     export get_runtime, get_confn
-    #     export get_plaquette, get_flow_data
-
-    include("IO_latticegpu.jl")
-    using .latticegpu
-        export get_flow_data, get_mc_history
+    include("IO_gpuobs.jl")
+    using .gpuobs
+        export BDIO_read_dict, BDIO_read_entry, df_from_BDIO
 
 end

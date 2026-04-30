@@ -1,0 +1,29 @@
+["supercoarse"]
+ensid = "a12_b42_L12"
+L     = 12
+beta  = 4.2703
+path  = "/home/pietro/ciao"
+
+["coarse"]
+ensid = "a09_b44_L16"
+L     = 16
+beta  = 4.4464
+path  = "/home/pietro/ciao"
+
+["medium"]
+ensid = "a07_b46_L20"
+L     = 20
+beta  = 4.6178
+path  = "/home/pietro/ciao"
+
+["fine"]
+ensid = "a06_b47_L24"
+L     = 24
+beta  = 4.7594
+path  = "/home/pietro/ciao"
+
+["superfine"]
+ensid = "a05_b48_L28"
+L     = 28
+beta  = 4.8739
+path  = "/home/pietro/ciao"
