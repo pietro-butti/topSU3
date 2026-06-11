@@ -1,7 +1,7 @@
-name = "topSU3"
+name = "LatKit"
 uuid = "cb4395ef-69d8-4728-8e8b-ed7e70d42a71"
 authors = ["Pietro Butti <pietro.butti.fl@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 ADerrors = "5e92007d-7bf1-471c-8ceb-4591b8b567a9"
