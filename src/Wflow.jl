@@ -80,6 +80,9 @@ module Wflow
     Determines the flow time bounds that bracket the reference value by computing
     the average observable across trajectories and performing interpolation.
 
+    In case the average of `flw_data[:,obs]` does not get to `sref`, the returned 
+    flow times are the last two available. A warning message gets printed. 
+
     # Arguments
     - `flw_data::DataFrame`: Dataframe containing flow data with multiple trajectories
     - `sref::Float64`: Reference observable value
@@ -91,11 +94,16 @@ module Wflow
     """
     function tbounds(flw_data::DataFrame, sref::Float64; obs=:t2Esym, time=:flowt)
         # Compute average values
-        avg = combine(groupby(flw_data,time), obs => mean)
-        rename!(avg, names(avg)[end] => obs)
+        avg = combine(groupby(flw_data,time), obs => mean => obs)
         
-        # Compute t₀ with average
-        scale = tcut(avg,obs=obs,time=time)(sref)
+        try
+            scale = tcut(avg,obs=obs,time=time)(sref)
+            idx = searchsortedfirst(avg[:,time], scale)
+            t1,t2 = avg[:,time][(idx-1):idx]
+        catch BoundsError
+            t1,t2 = avg[:,time][end-1:end]
+            @warn("Flow does not get to $sref. Extrapolating, might be very far off...")
+        end
         
         # Find closest flow times in vector
         idx = searchsortedfirst(avg[:,time], scale)
@@ -187,26 +195,29 @@ module Wflow
 
 
 
-    function find_optimal_alpha(df::DataFrame, tcut::Float64; alpha0=0.7)
-        q = slice_at(df,tcut).qtop
-        res = optimize( α->mean((α.*q .- round.(α.*q)).^2), [alpha0])
-        return Optim.minimizer(res)
+    # function find_Z(q::AbstractArray{Float64}; Z0=0.7)
+    #     res = optimize( α->mean((α.*q .- round.(α.*q)).^2), [Z0])
+    #     return Optim.minimizer(res)
+    # end
+    function find_Z(q::AbstractArray{Float64}; Z0=1.1)
+        res = optimize( 
+            Z->mean((Z.*q .- round.(Z.*q)).^2), 
+            [1.], [2.], [Z0],
+            Fminbox(NelderMead())
+        )
+        return Optim.minimizer(res) |> only
     end
 
-    function Qtop(df::DataFrame, tcut::Float64; α=0.7)
-        α = find_optimal_alpha(df,tcut)
-        aux = slice_at(df,tcut)[:,[:itraj,:qtop]]
-        aux.qtop_round = round.(α .* aux.qtop)
-        return aux
-    end
 
-
-
-
-
+    # function Qtop(df::DataFrame, tcut::Float64; alpha=nothing)
+    #     α = isnothing(alpha) ? find_optimal_alpha(df,tcut) : alpha
+    #     aux = slice_at(df,tcut)[:,[:itraj,:qtop]]
+    #     aux.qtop_round = round.(α .* aux.qtop)
+    #     return aux
+    # end
 
 
     export uwflow, tcut, tbounds, uwscale, confid
-    export slice_at, find_optimal_alpha, Qtop
+    export slice_at, find_Z
     
 end
